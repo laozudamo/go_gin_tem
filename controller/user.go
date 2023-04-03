@@ -36,7 +36,7 @@ func GetUserList(c *gin.Context) {
 	// 获取参数
 	UserListForm := forms.UserListForm{}
 	if err := c.ShouldBind(&UserListForm); err != nil {
-		// utils.HandleValidatorError(c, err)
+		utils.HandleValidatorError(c, err)
 		return
 	}
 	// 获取数据
@@ -55,6 +55,27 @@ func GetUserList(c *gin.Context) {
 	})
 }
 
-func Resgeter(c *gin.Context) {
+func ResgeterUser(c *gin.Context) {
+	registerUser := &forms.RegisterUser{}
+
+	if err := c.ShouldBindJSON(&registerUser); err != nil {
+		utils.HandleValidatorError(c, err)
+		return
+	}
+
+	_, hasUser := dao.FindUser(registerUser.Tel)
+
+	if hasUser {
+		response.Success(c, 4001, "用户已经存在", nil)
+		return
+	}
+
+	ok := dao.CreateUser(registerUser.Tel)
+
+	if ok {
+		// 生成token
+
+		response.Success(c, 200, "注册用户成功", nil)
+	}
 
 }

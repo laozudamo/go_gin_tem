@@ -14,8 +14,8 @@ func CreateToken(c *gin.Context, Id int, NickName string, Role int) string {
 	//生成token信息
 	j := middlewares.NewJWT()
 	claims := middlewares.CustomClaims{
-		ID: uint(Id),
-		// NickName:    NickName,
+		ID:       uint(Id),
+		NickName: NickName,
 		// AuthorityId: uint(Role),
 		StandardClaims: jwt.StandardClaims{
 			NotBefore: time.Now().Unix(),

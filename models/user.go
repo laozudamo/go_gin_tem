@@ -12,7 +12,7 @@ type User struct {
 	Desc     string     `json:"desc"`
 	Gender   string     `json:"gender"`
 	Role     int        `json:"role"`
-	Mobile   string     `json:"mobile"`
+	Tel      string     `json:"tel"`
 }
 
 func (User) TableName() string {

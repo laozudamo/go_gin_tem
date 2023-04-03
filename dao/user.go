@@ -6,6 +6,7 @@ import (
 )
 
 var users []models.User
+var user models.User
 
 // GetUserList 获取用户列表(page第几页,page_size每页几条数据)
 func GetUserListDao(page int, page_size int) (int, []interface{}) {
@@ -41,7 +42,7 @@ func GetUserListDao(page int, page_size int) (int, []interface{}) {
 			"desc":     useSingle.Desc,
 			"gender":   useSingle.Gender,
 			"role":     useSingle.Role,
-			"mobile":   useSingle.Mobile,
+			"tel":      useSingle.Tel,
 		}
 		userList = append(userList, userItemMap)
 	}
@@ -50,4 +51,16 @@ func GetUserListDao(page int, page_size int) (int, []interface{}) {
 
 // UsernameFindUserInfo 通过username找到用户信息
 
-// func Resget
+func FindUser(tel string) (*models.User, bool) {
+	if err := global.DB.Where("tel=?", tel).First(&user).Error; err != nil {
+		return &user, false
+	}
+	return &user, true
+}
+
+func CreateUser(tel string) bool {
+	if err := global.DB.Create(&user).Error; err != nil {
+		return false
+	}
+	return true
+}

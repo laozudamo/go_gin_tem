@@ -15,5 +15,8 @@ func InitMysqlDB() {
 		mysqlInfo.Name, mysqlInfo.Password, mysqlInfo.Host,
 		mysqlInfo.Port, mysqlInfo.DBName)
 	db, _ := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+
 	global.DB = db
+
+	// global.DB.AutoMigrate(models.User{})
 }

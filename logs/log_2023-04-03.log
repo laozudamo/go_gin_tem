@@ -118,3 +118,914 @@ net/http.(*conn).serve
 2023-04-03T18:54:40.466+0800	INFO	middlewares/logger.go:31	/v1/swagger/swagger-ui-bundle.js	{"statusxixixixi": 304, "method": "GET", "path": "/v1/swagger/swagger-ui-bundle.js", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36", "errors": "", "cost": "64µs"}
 2023-04-03T18:54:40.466+0800	INFO	middlewares/logger.go:31	/v1/swagger/swagger-ui-standalone-preset.js	{"statusxixixixi": 304, "method": "GET", "path": "/v1/swagger/swagger-ui-standalone-preset.js", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36", "errors": "", "cost": "32.25µs"}
 2023-04-03T18:54:40.814+0800	INFO	middlewares/logger.go:31	/v1/swagger/favicon-32x32.png	{"statusxixixixi": 304, "method": "GET", "path": "/v1/swagger/favicon-32x32.png", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36", "errors": "", "cost": "71.833µs"}
+2023-04-03T21:26:56.212+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.161959ms"}
+2023-04-03T21:26:58.692+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 162\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 23 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1035fce60, 0x140003fa5f0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004380e0, {0x10361397e?, 0x0?}, {0x10361394a, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004380e0, {0x103693fc0?, 0x140003cc550?, 0x1400005e480?}, {0x1035c746d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x1400054ab40, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0?, 0x140003cc550?, 0x1400043d038?}, {0x103693fc0?, 0x140003cc550?, 0x103693fc0?}, {0x1036e8bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004380e0, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0, 0x140003cc550})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x103aef5f0, {0x103693fc0, 0x140003cc550})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x103693fc0?, {0x103693fc0?, 0x140003cc550?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000434140?, {0x1035e56c0?, 0x140003cc500?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12b2650c0?, 0x140005222c0?}, {0x1035e56c0, 0x140003cc500})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12b0f7bd8?, {0x1035e56c0, 0x140003cc500})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x140001ac300, {0x1035e56c0, 0x140003cc500})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x1400043d3f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140001ac300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140001ac300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000560680, 0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000560680, {0x1036e0610?, 0x1400010c460}, 0x140001ac400)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1036deaa8?}, {0x1036e0610, 0x1400010c460}, 0x140001ac400)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000f2000, {0x1036e0f58, 0x14000125c80})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:26:58.695+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "10.662041ms"}
+2023-04-03T21:27:01.869+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 162\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 23 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1035fce60, 0x1400001e170})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004380e0, {0x10361397e?, 0x0?}, {0x10361394a, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004380e0, {0x103693fc0?, 0x1400007c190?, 0x102954380?}, {0x1035c746d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x140000c6480, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0?, 0x1400007c190?, 0x14000449038?}, {0x103693fc0?, 0x1400007c190?, 0x103693fc0?}, {0x1036e8bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004380e0, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0, 0x1400007c190})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x103aef5f0, {0x103693fc0, 0x1400007c190})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x103693fc0?, {0x103693fc0?, 0x1400007c190?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x1400059c140?, {0x1035e56c0?, 0x1400007c140?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12b2650c0?, 0x14000038040?}, {0x1035e56c0, 0x1400007c140})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x103ceeea8?, {0x1035e56c0, 0x1400007c140})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x14000576200, {0x1035e56c0, 0x1400007c140})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x140004493f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x14000576200)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x14000576200)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000576200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000576200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000560680, 0x14000576200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000560680, {0x1036e0610?, 0x140001ba0e0}, 0x14000576100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1036deaa8?}, {0x1036e0610, 0x140001ba0e0}, 0x14000576100)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000f2000, {0x1036e0f58, 0x14000125c80})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:27:01.871+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.301709ms"}
+2023-04-03T21:27:14.591+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 129\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 23 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1035fce60, 0x140003fb2b0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004380e0, {0x10361397e?, 0x0?}, {0x10361394a, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004380e0, {0x103693fc0?, 0x140003cc6e0?, 0x1400047c65d?}, {0x1035c746d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x1400054ac60, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0?, 0x140003cc6e0?, 0x14000449038?}, {0x103693fc0?, 0x140003cc6e0?, 0x103693fc0?}, {0x1036e8bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004380e0, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0, 0x140003cc6e0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x103aef5f0, {0x103693fc0, 0x140003cc6e0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x103693fc0?, {0x103693fc0?, 0x140003cc6e0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000434500?, {0x1035e56c0?, 0x140003cc690?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12b2650c0?, 0x14000522400?}, {0x1035e56c0, 0x140003cc690})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12b0f7bd8?, {0x1035e56c0, 0x140003cc690})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x140001ac300, {0x1035e56c0, 0x140003cc690})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x140004493f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140001ac300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140001ac300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000560680, 0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000560680, {0x1036e0610?, 0x1400010c7e0}, 0x140001ac500)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1036deaa8?}, {0x1036e0610, 0x1400010c7e0}, 0x140001ac500)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000f2000, {0x1036e0f58, 0x14000125c80})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:27:14.594+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.945834ms"}
+2023-04-03T21:27:53.522+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 129\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 23 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1035fce60, 0x140005261a0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004380e0, {0x10361397e?, 0x0?}, {0x10361394a, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004380e0, {0x103693fc0?, 0x140000c2a50?, 0x102954380?}, {0x1035c746d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x1400049c000, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0?, 0x140000c2a50?, 0x14000449038?}, {0x103693fc0?, 0x140000c2a50?, 0x103693fc0?}, {0x1036e8bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004380e0, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0, 0x140000c2a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x103aef5f0, {0x103693fc0, 0x140000c2a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x103693fc0?, {0x103693fc0?, 0x140000c2a50?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000530000?, {0x1035e56c0?, 0x140000c2a00?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12b2650c0?, 0x140000aa000?}, {0x1035e56c0, 0x140000c2a00})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12b0c0f08?, {0x1035e56c0, 0x140000c2a00})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x1400048c100, {0x1035e56c0, 0x140000c2a00})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x140004493f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x1400048c100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x1400048c100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x1400048c100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x1400048c100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000560680, 0x1400048c100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000560680, {0x1036e0610?, 0x140004900e0}, 0x1400048c000)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1036deaa8?}, {0x1036e0610, 0x140004900e0}, 0x1400048c000)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000f2000, {0x1036e0f58, 0x14000125c80})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:27:53.524+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "3.374791ms"}
+2023-04-03T21:29:19.271+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 23 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1035fce60, 0x140003fa210})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004380e0, {0x10361397e?, 0x0?}, {0x10361394a, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004380e0, {0x103693fc0?, 0x140003cc460?, 0x102954380?}, {0x1035c746d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x1400054a000, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0?, 0x140003cc460?, 0x1400043d038?}, {0x103693fc0?, 0x140003cc460?, 0x103693fc0?}, {0x1036e8bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004380e0, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0, 0x140003cc460})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x103aef5f0, {0x103693fc0, 0x140003cc460})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x103693fc0?, {0x103693fc0?, 0x140003cc460?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000434000?, {0x1035e56c0?, 0x140003cc410?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12b2650c0?, 0x14000522100?}, {0x1035e56c0, 0x140003cc410})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12b0f7bd8?, {0x1035e56c0, 0x140003cc410})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x140001ac300, {0x1035e56c0, 0x140003cc410})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x1400043d3f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140001ac300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140001ac300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000560680, 0x140001ac300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000560680, {0x1036e0610?, 0x1400010c2a0}, 0x140001ac100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1036deaa8?}, {0x1036e0610, 0x1400010c2a0}, 0x140001ac100)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000f2000, {0x1036e0f58, 0x14000125c80})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:29:19.273+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "4.047291ms"}
+2023-04-03T21:29:57.371+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 23 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1035fce60, 0x140005261c0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004380e0, {0x10361397e?, 0x0?}, {0x10361394a, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004380e0, {0x103693fc0?, 0x140000c2b40?, 0x102954380?}, {0x1035c746d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x140000c6480, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0?, 0x140000c2b40?, 0x14000017038?}, {0x103693fc0?, 0x140000c2b40?, 0x103693fc0?}, {0x1036e8bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004380e0, {0x1036e0ee8, 0x140000ac008}, {0x103693fc0, 0x140000c2b40})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x103aef5f0, {0x103693fc0, 0x140000c2b40})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x103693fc0?, {0x103693fc0?, 0x140000c2b40?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000530000?, {0x1035e56c0?, 0x140000c2a50?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12b2650c0?, 0x140000aa140?}, {0x1035e56c0, 0x140000c2a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12b0c0f08?, {0x1035e56c0, 0x140000c2a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x1400048c100, {0x1035e56c0, 0x140000c2a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x140000173f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x1400048c100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x1400048c100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x1400048c100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x1400048c100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000560680, 0x1400048c100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000560680, {0x1036e0610?, 0x140004902a0}, 0x1400048c200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1036deaa8?}, {0x1036e0610, 0x140004902a0}, 0x1400048c200)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000f2000, {0x1036e0f58, 0x14000125c80})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:29:57.373+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "3.330125ms"}
+2023-04-03T21:30:15.432+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 9 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1031f4ea0, 0x1400001f920})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004a0150, {0x10320b7b2?, 0x0?}, {0x10320b780, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004a0150, {0x10328bfc0?, 0x1400007caf0?, 0x1400005e480?}, {0x1031bf46d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x140000c6c60, {0x1032d8ee8, 0x140000ac008}, {0x10328bfc0?, 0x1400007caf0?, 0x14000441038?}, {0x10328bfc0?, 0x1400007caf0?, 0x10328bfc0?}, {0x1032e0bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004a0150, {0x1032d8ee8, 0x140000ac008}, {0x10328bfc0, 0x1400007caf0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x1036e75f0, {0x10328bfc0, 0x1400007caf0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x10328bfc0?, {0x10328bfc0?, 0x1400007caf0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x140004ae000?, {0x1031dd6c0?, 0x1400007caa0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12aed3698?, 0x14000405300?}, {0x1031dd6c0, 0x1400007caa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x1038e6ea8?, {0x1031dd6c0, 0x1400007caa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x14000230200, {0x1031dd6c0, 0x1400007caa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x140004413f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x14000230200)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x14000230200)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000230200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000230200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x1400043a1a0, 0x14000230200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x1400043a1a0, {0x1032d8610?, 0x1400010c2a0}, 0x14000230100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1032d6aa8?}, {0x1032d8610, 0x1400010c2a0}, 0x14000230100)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x1400010a090, {0x1032d8f58, 0x1400019dcb0})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:30:15.433+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.554292ms"}
+2023-04-03T21:30:20.475+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 9 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1031f4ea0, 0x140004a5660})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004a0150, {0x10320b7b2?, 0x0?}, {0x10320b780, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004a0150, {0x10328bfc0?, 0x140004ac5f0?, 0x1400047c478?}, {0x1031bf46d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x140004c5200, {0x1032d8ee8, 0x140000ac008}, {0x10328bfc0?, 0x140004ac5f0?, 0x1400044b038?}, {0x10328bfc0?, 0x140004ac5f0?, 0x10328bfc0?}, {0x1032e0bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004a0150, {0x1032d8ee8, 0x140000ac008}, {0x10328bfc0, 0x140004ac5f0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x1036e75f0, {0x10328bfc0, 0x140004ac5f0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x10328bfc0?, {0x10328bfc0?, 0x140004ac5f0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000436640?, {0x1031dd6c0?, 0x140004ac5a0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12aed3698?, 0x140004a8200?}, {0x1031dd6c0, 0x140004ac5a0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12ad38468?, {0x1031dd6c0, 0x140004ac5a0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x140001ae600, {0x1031dd6c0, 0x140004ac5a0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x1400044b3f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140001ae600)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140001ae600)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140001ae600)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140001ae600)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x1400043a1a0, 0x140001ae600)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x1400043a1a0, {0x1032d8610?, 0x1400047e0e0}, 0x140001ae500)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1032d6aa8?}, {0x1032d8610, 0x1400047e0e0}, 0x140001ae500)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x1400010a090, {0x1032d8f58, 0x1400019dcb0})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:30:20.475+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "1.247958ms"}
+2023-04-03T21:32:00.536+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/user/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 9 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x1031f4ea0, 0x140003fc1a0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140004a0150, {0x10320b7b2?, 0x0?}, {0x10320b780, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140004a0150, {0x10328bfc0?, 0x140000c2140?, 0x10254c380?}, {0x1031bf46d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x140004dc000, {0x1032d8ee8, 0x140000ac008}, {0x10328bfc0?, 0x140000c2140?, 0x1400044b038?}, {0x10328bfc0?, 0x140000c2140?, 0x10328bfc0?}, {0x1032e0bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140004a0150, {0x1032d8ee8, 0x140000ac008}, {0x10328bfc0, 0x140000c2140})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x1036e75f0, {0x10328bfc0, 0x140000c2140})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x10328bfc0?, {0x10328bfc0?, 0x140000c2140?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000000140?, {0x1031dd6c0?, 0x140000c20f0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12aed3698?, 0x14000038040?}, {0x1031dd6c0, 0x140000c20f0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12acb8f08?, {0x1031dd6c0, 0x140000c20f0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x140004cc100, {0x1031dd6c0, 0x140000c20f0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x1400044b3f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140004cc100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140004cc100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140004cc100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140004cc100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x1400043a1a0, 0x140004cc100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x1400043a1a0, {0x1032d8610?, 0x140004d00e0}, 0x140004cc000)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x1032d6aa8?}, {0x1032d8610, 0x140004d00e0}, 0x140004cc000)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x1400010a090, {0x1032d8f58, 0x1400019dcb0})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:32:00.540+0800	INFO	middlewares/logger.go:31	/v1/user/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/user/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "5.208625ms"}
+2023-04-03T21:32:18.797+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 404, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "13.75µs"}
+2023-04-03T21:32:24.599+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 404, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "4.917µs"}
+2023-04-03T21:32:37.672+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/base/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 10 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x101994ea0, 0x14000449e80})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x1400051a0e0, {0x1019ab7b2?, 0x0?}, {0x1019ab780, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x1400051a0e0, {0x101a2bfc0?, 0x140001a8aa0?, 0x101e899c0?}, {0x10195f46d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x14000604900, {0x101a78ee8, 0x140000220c8}, {0x101a2bfc0?, 0x140001a8aa0?, 0x140000b1038?}, {0x101a2bfc0?, 0x140001a8aa0?, 0x101a2bfc0?}, {0x101a80bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x1400051a0e0, {0x101a78ee8, 0x140000220c8}, {0x101a2bfc0, 0x140001a8aa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x101e875f0, {0x101a2bfc0, 0x140001a8aa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x101a2bfc0?, {0x101a2bfc0?, 0x140001a8aa0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x140004a0500?, {0x10197d6c0?, 0x140001a8a50?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x1296fb218?, 0x140000394c0?}, {0x10197d6c0, 0x140001a8a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x12945be88?, {0x10197d6c0, 0x140001a8a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x140000aa100, {0x10197d6c0, 0x140001a8a50})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.Resgeter(0x140000b13f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:60 +0x3c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140000aa100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140000aa100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140000aa100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140000aa100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000500820, 0x140000aa100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000500820, {0x101a78610?, 0x140001602a0}, 0x140000aa000)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x101a76aa8?}, {0x101a78610, 0x140001602a0}, 0x140000aa000)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x14000096090, {0x101a78f58, 0x14000603c80})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.Resgeter
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:60
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:32:37.673+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.0075ms"}
+2023-04-03T21:35:30.870+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/base/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 50 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x100f28ea0, 0x1400047bc70})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x14000134070, {0x100f3f7b2?, 0x0?}, {0x100f3f780, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x14000134070, {0x100fbffc0?, 0x14000528b40?, 0x14000080000?}, {0x100ef346d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x140000c6b40, {0x10100cee8, 0x140000ac008}, {0x100fbffc0?, 0x14000528b40?, 0x1400011d018?}, {0x100fbffc0?, 0x14000528b40?, 0x100fbffc0?}, {0x101014bc8?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x14000134070, {0x10100cee8, 0x140000ac008}, {0x100fbffc0, 0x14000528b40})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x10141b5f0, {0x100fbffc0, 0x14000528b40})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x100fbffc0?, {0x100fbffc0?, 0x14000528b40?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x1400013e000?, {0x100f116c0?, 0x14000528aa0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x128c923d8?, 0x14000519340?}, {0x100f116c0, 0x14000528aa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x1400011d348?, {0x100f116c0, 0x14000528aa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x14000116100, {0x100f116c0, 0x14000528aa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.ResgeterUser(0x1400011d3f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:63 +0x90\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x14000116100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x14000116100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000116100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000116100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x140004b09c0, 0x14000116100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x140004b09c0, {0x10100c610?, 0x1400018c2a0}, 0x14000116000)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x10100aaa8?}, {0x10100c610, 0x1400018c2a0}, 0x14000116000)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x1400056c090, {0x10100cf58, 0x14000527950})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.ResgeterUser
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:63
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:35:30.872+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "3.640541ms"}
+2023-04-03T21:36:51.133+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/base/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 50 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x105960ee0, 0x14000401bf0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x14000592070, {0x1059777f2?, 0x0?}, {0x1059777c0, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x14000592070, {0x1059f8000?, 0x140000c2b90?, 0x1400005ed80?}, {0x10592b46d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x140000c67e0, {0x105a44f28, 0x140000ac008}, {0x1059f8000?, 0x140000c2b90?, 0x1400052a000?}, {0x1059f8000?, 0x140000c2b90?, 0x104d7966c?}, {0x105a4cc08?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x14000592070, {0x105a44f28, 0x140000ac008}, {0x1059f8000, 0x140000c2b90})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x105e535f0, {0x1059f8000, 0x140000c2b90})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x1059f8000?, {0x1059f8000?, 0x140000c2b90?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x105949700?, {0x105949700?, 0x140000c2af0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x140004ae000?, {0x1059431c0?, 0x1400051a228?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12d6ec858?, 0x140000ab480?}, {0x1059431c0, 0x1400051a228})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x1400054b348?, {0x1059431c0, 0x1400051a228})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBind(0x14000544100, {0x1059431c0, 0x1400051a228})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696 +0x288\ngoGinTem/controller.ResgeterUser(0x1400054b3f8?)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:63 +0xb8\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x14000544100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x14000544100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x14000544100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x14000544100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x14000602680, 0x14000544100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x14000602680, {0x105a44650?, 0x1400010c2a0}, 0x14000544000)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x105a42ae8?}, {0x105a44650, 0x1400010c2a0}, 0x14000544000)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x14000516090, {0x105a44f98, 0x140001612c0})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:696
+goGinTem/controller.ResgeterUser
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:63
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:36:51.135+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.847375ms"}
+2023-04-03T21:37:56.340+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/base/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 12 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x105a48ee0, 0x140007091d0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x14000136310, {0x105a5f7f2?, 0x0?}, {0x105a5f7c0, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x14000136310, {0x105ae0000?, 0x140003d2ff0?, 0x1400005ed80?}, {0x105a1346d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x1400022e480, {0x105b2cf28, 0x140000ac008}, {0x105ae0000?, 0x140003d2ff0?, 0x0?}, {0x105ae0000?, 0x140003d2ff0?, 0x104e6166c?}, {0x105b34c08?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x14000136310, {0x105b2cf28, 0x140000ac008}, {0x105ae0000, 0x140003d2ff0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x105f3b5f0, {0x105ae0000, 0x140003d2ff0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x105ae0000?, {0x105ae0000?, 0x140003d2ff0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x105a31700?, {0x105a31700?, 0x140003d2fa0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x1400042e280?, {0x105a2b1c0?, 0x140000a63d8?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x12d754e18?, 0x14000039680?}, {0x105a2b1c0, 0x140000a63d8})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x1400032b398?, {0x105a2b1c0, 0x140000a63d8})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBindJSON(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701\ngoGinTem/controller.ResgeterUser(0x140001ac600)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:62 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140001ac600)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140001ac600)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140001ac600)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140001ac600)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x140006029c0, 0x140001ac600)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x140006029c0, {0x105b2c650?, 0x1400010c2a0}, 0x140001ac500)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x105b2aae8?}, {0x105b2c650, 0x1400010c2a0}, 0x140001ac500)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000f2870, {0x105b2cf98, 0x1400019d140})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701
+goGinTem/controller.ResgeterUser
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:62
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:37:56.342+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "3.163958ms"}
+2023-04-03T21:39:43.066+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/base/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 130\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 20 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x105568ee0, 0x1400068d9c0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140000980e0, {0x10557f7f2?, 0x0?}, {0x10557f7c0, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140000980e0, {0x105600000?, 0x140001a8aa0?, 0x1400047e900?}, {0x10553346d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x14000120900, {0x10564cf28, 0x140000220c8}, {0x105600000?, 0x140001a8aa0?, 0x0?}, {0x105600000?, 0x140001a8aa0?, 0x10498166c?}, {0x105654c08?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140000980e0, {0x10564cf28, 0x140000220c8}, {0x105600000, 0x140001a8aa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x105a5b5f0, {0x105600000, 0x140001a8aa0})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x105600000?, {0x105600000?, 0x140001a8aa0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x105551700?, {0x105551700?, 0x140001a8a50?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x140000a4140?, {0x10554b1c0?, 0x14000696268?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x10d322118?, 0x140000394c0?}, {0x10554b1c0, 0x14000696268})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x140003e3398?, {0x10554b1c0, 0x14000696268})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBindJSON(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701\ngoGinTem/controller.ResgeterUser(0x140001b6100)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:62 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140001b6100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140001b6100)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140001b6100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140001b6100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x140005829c0, 0x140001b6100)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x140005829c0, {0x10564c650?, 0x140001602a0}, 0x140001b6000)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x10564aae8?}, {0x10564c650, 0x140001602a0}, 0x140001b6000)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000a0090, {0x10564cf98, 0x1400009fc50})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701
+goGinTem/controller.ResgeterUser
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:62
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:39:43.068+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "3.255167ms"}
+2023-04-03T21:39:51.521+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Undefined validation function ' max' on field 'CheckPwd'", "request": "POST /v1/base/register HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 126\r\nContent-Type: application/json\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 20 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x105568ee0, 0x1400009a180})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngithub.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive(0x140000980e0, {0x10557f7f2?, 0x0?}, {0x10557f7c0, 0x8}, {0x0, 0x0}, 0x0)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294 +0x904\ngithub.com/go-playground/validator/v10.(*Validate).extractStructCache(0x140000980e0, {0x105600000?, 0x1400007c230?, 0x1048c0380?}, {0x10553346d, 0xc})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155 +0x4a4\ngithub.com/go-playground/validator/v10.(*validate).validateStruct(0x14000538000, {0x10564cf28, 0x140000220c8}, {0x105600000?, 0x1400007c230?, 0x1400050e000?}, {0x105600000?, 0x1400007c230?, 0x10498166c?}, {0x105654c08?, ...}, ...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37 +0x130\ngithub.com/go-playground/validator/v10.(*Validate).StructCtx(0x140000980e0, {0x10564cf28, 0x140000220c8}, {0x105600000, 0x1400007c230})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385 +0x390\ngithub.com/go-playground/validator/v10.(*Validate).Struct(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct(0x105a5b5f0, {0x105600000, 0x1400007c230})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80 +0x4c\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x105600000?, {0x105600000?, 0x1400007c230?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59 +0x184\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x105551700?, {0x105551700?, 0x1400007c1e0?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct(0x14000000280?, {0x10554b1c0?, 0x1400052c000?})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57 +0xf8\ngithub.com/gin-gonic/gin/binding.validate(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121\ngithub.com/gin-gonic/gin/binding.decodeJSON({0x10d322118?, 0x14000684080?}, {0x10554b1c0, 0x1400052c000})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55 +0xa4\ngithub.com/gin-gonic/gin/binding.jsonBinding.Bind({}, 0x140003ed398?, {0x10554b1c0, 0x1400052c000})\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37 +0x5c\ngithub.com/gin-gonic/gin.(*Context).ShouldBindWith(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741\ngithub.com/gin-gonic/gin.(*Context).ShouldBindJSON(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701\ngoGinTem/controller.ResgeterUser(0x140006a2300)\n\t/Users/shelby/development/go/go_gin_tem/controller/user.go:62 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140006a2300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140006a2300)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140006a2300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140006a2300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x140005829c0, 0x140006a2300)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x140005829c0, {0x10564c650?, 0x140005220e0}, 0x140006a2200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x10564aae8?}, {0x10564c650, 0x140005220e0}, 0x140006a2200)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140000a0090, {0x10564cf98, 0x1400009fc50})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+github.com/go-playground/validator/v10.(*Validate).parseFieldTagsRecursive
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:294
+github.com/go-playground/validator/v10.(*Validate).extractStructCache
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/cache.go:155
+github.com/go-playground/validator/v10.(*validate).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator.go:37
+github.com/go-playground/validator/v10.(*Validate).StructCtx
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:385
+github.com/go-playground/validator/v10.(*Validate).Struct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/go-playground/validator/v10@v10.12.0/validator_instance.go:358
+github.com/gin-gonic/gin/binding.(*defaultValidator).validateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:80
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:59
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.(*defaultValidator).ValidateStruct
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/default_validator.go:57
+github.com/gin-gonic/gin/binding.validate
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/binding.go:121
+github.com/gin-gonic/gin/binding.decodeJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:55
+github.com/gin-gonic/gin/binding.jsonBinding.Bind
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/binding/json.go:37
+github.com/gin-gonic/gin.(*Context).ShouldBindWith
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:741
+github.com/gin-gonic/gin.(*Context).ShouldBindJSON
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:701
+goGinTem/controller.ResgeterUser
+	/Users/shelby/development/go/go_gin_tem/controller/user.go:62
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-03T21:39:51.522+0800	INFO	middlewares/logger.go:31	/v1/base/register	{"statusxixixixi": 500, "method": "POST", "path": "/v1/base/register", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "1.350708ms"}
