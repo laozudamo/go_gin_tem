@@ -1,0 +1,19 @@
+# dev
+name: "go-gin-tem"
+port: 8080
+logsAddress: "./logs/"
+
+mysql:
+  name: "root"
+  host: 'localhost'
+  port: 3306
+  password: "root123456"
+  dbName: "goGinTem"
+
+redis:
+  host: "localhost"
+  port: 6379
+
+jwt:
+  key: "EYsnfKMf5XWk87LASEs28Dj5ZqGkSerH"
+# production
