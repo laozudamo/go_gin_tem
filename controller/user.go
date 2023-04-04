@@ -5,7 +5,6 @@ import (
 	"goGinTem/dao"
 	"goGinTem/forms"
 	"goGinTem/utils"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -17,18 +16,21 @@ func PasswordLogin(c *gin.Context) {
 		utils.HandleValidatorError(c, err)
 		return
 	}
-	//查询数据库是否有该用户
-}
+	user, ok := dao.FindUser(PasswordLoginForm.Tel)
 
-// @Tags 首页
-// @Success 200 {string} Welcome
-// @Router /index [get]
-func GetIndex(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"code": 0,
-		"msg":  "这是数据",
-		"data": "",
-	})
+	if !ok {
+		response.Err(c, 200, 4002, "用户名或者密码错错误", "")
+		return
+	}
+
+	if user.Password != utils.HashString(PasswordLoginForm.PassWord) {
+		response.Err(c, 200, 4002, "用户名或者密码错错误", "")
+		return
+	}
+
+	token := utils.CreateToken(c, int(user.ID), user.Tel)
+
+	response.Success(c, 200, "登录成功", token)
 
 }
 
@@ -63,6 +65,16 @@ func ResgeterUser(c *gin.Context) {
 		return
 	}
 
+	if !store.Verify(registerUser.CaptchaId, registerUser.Captcha, true) {
+		response.Err(c, 400, 400, "验证码错误", nil)
+		return
+	}
+
+	if registerUser.PassWord != registerUser.CheckPwd {
+		response.Err(c, 400, 400, "密码不一致,请重新输入", nil)
+		return
+	}
+
 	_, hasUser := dao.FindUser(registerUser.Tel)
 
 	if hasUser {
@@ -70,11 +82,11 @@ func ResgeterUser(c *gin.Context) {
 		return
 	}
 
-	ok := dao.CreateUser(registerUser.Tel)
+	// user := models.User{}
+	hashPwd := utils.HashString(registerUser.PassWord)
+	_, ok := dao.CreateUser(registerUser.Tel, hashPwd)
 
 	if ok {
-		// 生成token
-
 		response.Success(c, 200, "注册用户成功", nil)
 	}
 

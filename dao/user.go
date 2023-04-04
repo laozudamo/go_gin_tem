@@ -58,9 +58,12 @@ func FindUser(tel string) (*models.User, bool) {
 	return &user, true
 }
 
-func CreateUser(tel string) bool {
+func CreateUser(tel string, password string) (*models.User, bool) {
+	user := models.User{}
+	user.Tel = tel
+	user.Password = password
 	if err := global.DB.Create(&user).Error; err != nil {
-		return false
+		return &user, false
 	}
-	return true
+	return &user, true
 }

@@ -1,0 +1,2 @@
+2023-04-05T00:45:53.464+0800	INFO	middlewares/logger.go:31	/v1/v1/user/login	{"statusxixixixi": 404, "method": "POST", "path": "/v1/v1/user/login", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "41.75µs"}
+2023-04-05T00:48:01.809+0800	INFO	middlewares/logger.go:31	/v1/user/login	{"statusxixixixi": 400, "method": "POST", "path": "/v1/user/login", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "107.542µs"}
