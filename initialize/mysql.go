@@ -18,5 +18,4 @@ func InitMysqlDB() {
 
 	global.DB = db
 
-	// global.DB.AutoMigrate(models.User{})
 }

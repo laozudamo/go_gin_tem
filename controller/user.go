@@ -1,14 +1,26 @@
 package controller
 
 import (
+	"encoding/json"
+	"fmt"
 	response "goGinTem/Response"
 	"goGinTem/dao"
 	"goGinTem/forms"
+	"goGinTem/models"
 	"goGinTem/utils"
 
 	"github.com/gin-gonic/gin"
 )
 
+// @Summary      账号登录接口
+// @Description  get accounts
+// @Tags         accounts
+// @Accept       json
+// @Produce      json
+// @Param        q    query     string  false  "name search by q"  Format(email)
+// @Success      200  {array}   model.Account
+// @Failure      400  {object}  httputil.HTTPError
+// @Router       /login [post]
 func PasswordLogin(c *gin.Context) {
 	PasswordLoginForm := forms.PasswordLoginForm{}
 
@@ -32,29 +44,6 @@ func PasswordLogin(c *gin.Context) {
 
 	response.Success(c, 200, "登录成功", token)
 
-}
-
-func GetUserList(c *gin.Context) {
-	// 获取参数
-	UserListForm := forms.UserListForm{}
-	if err := c.ShouldBind(&UserListForm); err != nil {
-		utils.HandleValidatorError(c, err)
-		return
-	}
-	// 获取数据
-	total, userlist := dao.GetUserListDao(UserListForm.Page, UserListForm.PageSize)
-	// 判断
-	if (total + len(userlist)) == 0 {
-		response.Err(c, 400, 400, "未获取到到数据", map[string]interface{}{
-			"total":    total,
-			"userlist": userlist,
-		})
-		return
-	}
-	response.Success(c, 200, "获取用户列表成功", map[string]interface{}{
-		"total":    total,
-		"userlist": userlist,
-	})
 }
 
 func ResgeterUser(c *gin.Context) {
@@ -88,6 +77,47 @@ func ResgeterUser(c *gin.Context) {
 
 	if ok {
 		response.Success(c, 200, "注册用户成功", nil)
+	}
+
+}
+
+func GetUserInfo(c *gin.Context) {
+	value, _ := c.Get("userId")
+
+	user, ok := dao.GetUserInfo(value)
+	info := models.UserInfo{}
+
+	if err := json.Unmarshal([]byte(user.UserInfo), &info); err != nil {
+		return
+	}
+
+	if ok {
+		response.Success(c, 200, "获取成功", info)
+	} else {
+		response.Err(c, 200, 500, "查询数据错误", "")
+	}
+
+}
+
+func UpdateUserInfo(c *gin.Context) {
+	id, _ := c.Get("userId")
+
+	userInfo := models.UserInfo{}
+
+	if err := c.ShouldBindJSON(&userInfo); err != nil {
+		fmt.Printf("err1: %v\n", err)
+		panic(err)
+	}
+
+	jsonStringInfo, err := json.Marshal(userInfo)
+
+	if err != nil {
+		panic(err)
+	}
+	_, ok := dao.UpdateUserInfo(string(jsonStringInfo), id)
+
+	if ok {
+		response.Success(c, 200, "用户信息更新成功", "")
 	}
 
 }

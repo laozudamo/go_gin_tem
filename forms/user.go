@@ -13,6 +13,15 @@ type PasswordLoginForm struct {
 	PassWord string `form:"password" json:"password" binding:"required,min=3,max=20"`
 }
 
+type UserInfoForm struct {
+	// Birthday string `form:"birthday" json:"birthday"`
+	Username string `form:"username" json:"username"`
+	Desc     string `form:"desc" json:"desc"`
+	Gender   string `form:"gender" json:"gender"`
+	Role     int    `form:"role" json:"role"`
+	Email    string `form:"email" json:"email"`
+}
+
 type UserListForm struct {
 	// 页数
 	Page int `form:"page" json:"page" binding:"required"`
