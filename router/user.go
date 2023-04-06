@@ -12,6 +12,7 @@ func UserRouter(Router *gin.RouterGroup) {
 	{
 		UserRouter.POST("login", controller.PasswordLogin)
 		UserRouter.GET("getUserInfo", middlewares.JWTAuth(), controller.GetUserInfo)
+		UserRouter.GET("list", middlewares.JWTAuth(), controller.GetUserList)
 		UserRouter.POST("updateUserInfo", middlewares.JWTAuth(), controller.UpdateUserInfo)
 	}
 }

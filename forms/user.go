@@ -13,13 +13,24 @@ type PasswordLoginForm struct {
 	PassWord string `form:"password" json:"password" binding:"required,min=3,max=20"`
 }
 
-type UserInfoForm struct {
-	// Birthday string `form:"birthday" json:"birthday"`
+type QueryInfoForm struct {
+	ID       uint   `form:"id" json:"id"`
 	Username string `form:"username" json:"username"`
 	Desc     string `form:"desc" json:"desc"`
 	Gender   string `form:"gender" json:"gender"`
 	Role     int    `form:"role" json:"role"`
 	Email    string `form:"email" json:"email"`
+	Address  string `form:"address" json:"address"`
+	Tel      string `json:"tel"`
+}
+
+type UpdateInfoForm struct {
+	Username string `form:"username" json:"username"`
+	Desc     string `form:"desc" json:"desc"`
+	Gender   string `form:"gender" json:"gender"`
+	Role     int    `form:"role" json:"role"`
+	Email    string `form:"email" json:"email"`
+	Address  string `form:"address" json:"address"`
 }
 
 type UserListForm struct {

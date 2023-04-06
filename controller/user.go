@@ -2,11 +2,9 @@ package controller
 
 import (
 	"encoding/json"
-	"fmt"
 	response "goGinTem/Response"
 	"goGinTem/dao"
 	"goGinTem/forms"
-	"goGinTem/models"
 	"goGinTem/utils"
 
 	"github.com/gin-gonic/gin"
@@ -85,7 +83,9 @@ func GetUserInfo(c *gin.Context) {
 	value, _ := c.Get("userId")
 
 	user, ok := dao.GetUserInfo(value)
-	info := models.UserInfo{}
+	info := forms.QueryInfoForm{}
+	info.Tel = user.Tel
+	info.ID = user.ID
 
 	if err := json.Unmarshal([]byte(user.UserInfo), &info); err != nil {
 		return
@@ -102,22 +102,27 @@ func GetUserInfo(c *gin.Context) {
 func UpdateUserInfo(c *gin.Context) {
 	id, _ := c.Get("userId")
 
-	userInfo := models.UserInfo{}
+	userInfo := forms.UpdateInfoForm{}
 
 	if err := c.ShouldBindJSON(&userInfo); err != nil {
-		fmt.Printf("err1: %v\n", err)
-		panic(err)
+		response.Err(c, 200, 500, "更新失败", err)
+		return
 	}
 
 	jsonStringInfo, err := json.Marshal(userInfo)
 
 	if err != nil {
-		panic(err)
+		response.Err(c, 200, 500, "更新失败", err)
+		return
 	}
 	_, ok := dao.UpdateUserInfo(string(jsonStringInfo), id)
 
 	if ok {
-		response.Success(c, 200, "用户信息更新成功", "")
+		response.Success(c, 200, "用户信息更新成功", nil)
 	}
+
+}
+
+func GetUserList(c *gin.Context) {
 
 }
