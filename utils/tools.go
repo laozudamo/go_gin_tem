@@ -28,3 +28,12 @@ func HashString(s string) string {
 	fmt.Println("Hash:", encoded)
 	return encoded
 }
+
+func ParseTime(strTime string) (*time.Time, bool) {
+	layout := "2006-01-02 15:04:05"
+	parsedTime, err := time.Parse(layout, strTime)
+	if err != nil {
+		return nil, false
+	}
+	return &parsedTime, true
+}

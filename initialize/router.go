@@ -20,6 +20,7 @@ func Routers() *gin.Engine {
 	//路由分组
 	router.UserRouter(ApiGroup)
 	router.InitBaseRouter(ApiGroup)
+	router.InitTopicRouter(ApiGroup)
 
 	return Router
 }

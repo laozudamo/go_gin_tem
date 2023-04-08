@@ -13,6 +13,13 @@ type PasswordLoginForm struct {
 	PassWord string `form:"password" json:"password" binding:"required,min=3,max=20"`
 }
 
+type FixPwdForm struct {
+	Tel      string `form:"tel" json:"tel" binding:"required"`
+	Captcha  string `form:"captcha" json:"captcha" binding:"required,min=5,max=5"`
+	Oldpwd   string `form:"oldpwd" json:"oldpwd" binding:"required,min=3,max=20"`
+	PassWord string `form:"password" json:"password" binding:"required,min=3,max=20"`
+}
+
 type QueryInfoForm struct {
 	ID       uint   `form:"id" json:"id"`
 	Username string `form:"username" json:"username"`
