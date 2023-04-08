@@ -31,18 +31,10 @@ func CreatTopic(c *gin.Context) {
 		return
 	}
 
-	_, err := dao.CreatTopic(topic, createId)
+	_, err := dao.CreateTopicAndVote(topic, createId)
 	if err != nil {
 		response.Err(c, 200, 500, "服务器内部错误", err)
 	}
 	response.Success(c, 200, "创建成功", "")
 
 }
-
-// func DelTopic(c *gin.Context) {
-
-// }
-
-// func UpdateTopic(c *gin.Context) {
-
-// }

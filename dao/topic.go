@@ -11,20 +11,6 @@ import (
 	"gorm.io/gorm"
 )
 
-func CreatTopic(topic *forms.TopicForm, creatId uint) (bool, error) {
-	newTopic := models.Topic{}
-	newTopic.Title = topic.Title
-	newTopic.Text = topic.Text
-	newTopic.Tag = topic.Tag
-	newTopic.CreatByID = creatId
-	newTopic.Status = 0
-	if err := global.DB.Create(&newTopic).Error; err != nil {
-		panic(err)
-	}
-	isOK, err := CreateTopicAndVote(topic, newTopic.ID)
-	return isOK, err
-}
-
 func CreateTopicAndVote(topic *forms.TopicForm, creatId uint) (bool, error) {
 	err := global.DB.Transaction(func(tx *gorm.DB) error {
 		newTopic := models.Topic{

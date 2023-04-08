@@ -1,0 +1,40 @@
+2023-04-09T01:26:14.060+0800	ERROR	middlewares/logger.go:74	[Recovery from panic]	{"error": "Error 1146 (42S02): Table 'gogintem.topic' doesn't exist", "request": "POST /v1/topic HTTP/1.1\r\nHost: 127.0.0.1:8080\r\nAccept: */*\r\nAccept-Encoding: gzip, deflate, br\r\nConnection: keep-alive\r\nContent-Length: 555\r\nContent-Type: application/json\r\nToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MiwiVGVsIjoiMTU2ODEzMTE5NzEiLCJBdXRob3JpdHlJZCI6MCwiZXhwIjoxNjgzNTMyMDIxLCJpc3MiOiJ0ZXN0IiwibmJmIjoxNjgwOTQwMDIxfQ.v-0AYCK6QgQ6FMmt0CGh_ZngiHDrt_hjuAXbr3LFEtA\r\nUser-Agent: apifox/1.0.0 (https://www.apifox.cn)\r\n\r\n", "stack": "goroutine 11 [running]:\nruntime/debug.Stack()\n\t/opt/homebrew/opt/go/libexec/src/runtime/debug/stack.go:24 +0x64\ngoGinTem/middlewares.GinRecovery.func1.1()\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:77 +0x25c\npanic({0x103791ea0, 0x140001163f0})\n\t/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884 +0x1f4\ngoGinTem/dao.CreatTopic(0x14000230120, 0x2)\n\t/Users/shelby/development/go/go_gin_tem/dao/topic.go:22 +0x10c\ngoGinTem/controller.CreatTopic(0x140000da200?)\n\t/Users/shelby/development/go/go_gin_tem/controller/topic.go:34 +0xb8\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.JWTAuth.func1(0x140000da200)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/jwt.go:53 +0x26c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinRecovery.func1(0x140000da200)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88 +0x74\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngoGinTem/middlewares.GinLogger.func1(0x140000da200)\n\t/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25 +0x84\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.CustomRecoveryWithWriter.func1(0x140000da200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102 +0x7c\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.LoggerWithConfig.func1(0x140000da200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240 +0xac\ngithub.com/gin-gonic/gin.(*Context).Next(...)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174\ngithub.com/gin-gonic/gin.(*Engine).handleHTTPRequest(0x140004b3d40, 0x140000da200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620 +0x51c\ngithub.com/gin-gonic/gin.(*Engine).ServeHTTP(0x140004b3d40, {0x10383ea30?, 0x140004fa0e0}, 0x14000224200)\n\t/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576 +0x1e4\nnet/http.serverHandler.ServeHTTP({0x10383cec8?}, {0x10383ea30, 0x140004fa0e0}, 0x14000224200)\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936 +0x2c0\nnet/http.(*conn).serve(0x140002310e0, {0x10383f408, 0x1400027c690})\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995 +0x518\ncreated by net/http.(*Server).Serve\n\t/opt/homebrew/opt/go/libexec/src/net/http/server.go:3089 +0x4e8\n"}
+goGinTem/middlewares.GinRecovery.func1.1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:74
+runtime.gopanic
+	/opt/homebrew/opt/go/libexec/src/runtime/panic.go:884
+goGinTem/dao.CreatTopic
+	/Users/shelby/development/go/go_gin_tem/dao/topic.go:22
+goGinTem/controller.CreatTopic
+	/Users/shelby/development/go/go_gin_tem/controller/topic.go:34
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.JWTAuth.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/jwt.go:53
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinRecovery.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:88
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+goGinTem/middlewares.GinLogger.func1
+	/Users/shelby/development/go/go_gin_tem/middlewares/logger.go:25
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/shelby/goWorkEnv/pkg/mod/github.com/gin-gonic/gin@v1.9.0/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:2936
+net/http.(*conn).serve
+	/opt/homebrew/opt/go/libexec/src/net/http/server.go:1995
+2023-04-09T01:26:14.062+0800	INFO	middlewares/logger.go:31	/v1/topic	{"statusxixixixi": 500, "method": "POST", "path": "/v1/topic", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "7.209958ms"}
