@@ -17,3 +17,15 @@ type VoteOption struct {
 	ID   int
 	Text string
 }
+
+// 审核话题
+type ReviewTopicForm struct {
+	ID     int `json:"id"`     // 话题ID
+	Status int `json:"status"` //话题状态
+}
+
+// 投票 单选投票和多选
+type VoteTopicForm struct {
+	ID        uint // 话题ID
+	OptionsID []int
+}

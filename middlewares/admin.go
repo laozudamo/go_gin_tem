@@ -17,7 +17,9 @@ func IsAdminAuth() gin.HandlerFunc {
 		// 判断role权限
 		if currentUser.AuthorityId != 1 {
 			ctx.JSON(http.StatusForbidden, gin.H{
-				"msg": "用户没有权限",
+				"msg":  "用户没有权限",
+				"code": 500,
+				"data": nil,
 			})
 			//中断下面中间件
 			ctx.Abort()

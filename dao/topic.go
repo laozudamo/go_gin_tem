@@ -2,6 +2,7 @@ package dao
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"goGinTem/forms"
 	"goGinTem/global"
@@ -43,7 +44,19 @@ func CreateTopicAndVote(topic *forms.TopicForm, creatId uint) (bool, error) {
 			return fmt.Errorf("invalid vote end time")
 		}
 
-		voteOptionsStr, err := json.Marshal(topic.VoteOptions)
+		fmt.Printf("len(topic.VoteOptions): %v\n", int(len(topic.VoteOptions)))
+
+		sli := []models.VoteOption{}
+		for _, v := range topic.VoteOptions {
+			options := models.VoteOption{
+				ID:        v.ID,
+				Text:      v.Text,
+				VoteCount: 0,
+			}
+			sli = append(sli, options)
+		}
+
+		voteOptionsStr, err := json.Marshal(sli)
 		if err != nil {
 			return err
 		}
@@ -64,4 +77,15 @@ func CreateTopicAndVote(topic *forms.TopicForm, creatId uint) (bool, error) {
 	}
 
 	return true, nil
+}
+
+func UpdateTopicStatus(topicCheckForm *forms.ReviewTopicForm) (bool, error) {
+	err := global.DB.Model(&models.Topic{}).Where("id = ?", topicCheckForm.ID).Update("status", topicCheckForm.Status).Error
+	return errors.Is(err, gorm.ErrRecordNotFound), err
+}
+
+func FindTopic(id uint) (*models.Topic, error) {
+	topic := &models.Topic{}
+	result := global.DB.First(&topic, id)
+	return topic, result.Error
 }

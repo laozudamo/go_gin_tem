@@ -12,7 +12,7 @@ type Topic struct {
 	Text      string
 	Tag       string
 	CreatByID uint
-	Status    TopicType // 话题的状态，草稿、待审核、已发布、已结束
+	Status    TopicType // 话题的状态，草稿、待审核、、已结束
 	gorm.Model
 }
 
@@ -54,4 +54,10 @@ const (
 
 func (Topic) TableName() string {
 	return "topic"
+}
+
+type VoteOption struct {
+	ID        int
+	Text      string
+	VoteCount int
 }
