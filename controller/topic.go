@@ -6,6 +6,7 @@ import (
 	"goGinTem/dao"
 	"goGinTem/forms"
 	"goGinTem/utils"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -49,7 +50,7 @@ func ReviewTopic(c *gin.Context) {
 	}
 	fmt.Printf("checkTopicForm: %v\n", checkTopicForm)
 
-	_, err := dao.FindTopic(uint(checkTopicForm.ID))
+	_, err := dao.FindTopic(int64(checkTopicForm.ID))
 
 	if err != nil {
 		response.Err(c, 200, 400, "请传入正确的id", err)
@@ -66,4 +67,19 @@ func ReviewTopic(c *gin.Context) {
 		return
 	}
 
+}
+
+func GetTopic(c *gin.Context) {
+	idStr := c.Query("id")
+
+	id, err := strconv.ParseInt(idStr, 10, 64)
+	if err != nil {
+		response.Err(c, 200, 500, "id错误", err)
+	}
+	topic, err := dao.FindTopic(id)
+	if err != nil {
+		response.Err(c, 200, 500, "查询错误", err)
+		return
+	}
+	response.Success(c, 200, "获取成功", topic)
 }

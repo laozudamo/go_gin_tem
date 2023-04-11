@@ -44,8 +44,6 @@ func CreateTopicAndVote(topic *forms.TopicForm, creatId uint) (bool, error) {
 			return fmt.Errorf("invalid vote end time")
 		}
 
-		fmt.Printf("len(topic.VoteOptions): %v\n", int(len(topic.VoteOptions)))
-
 		sli := []models.VoteOption{}
 		for _, v := range topic.VoteOptions {
 			options := models.VoteOption{
@@ -84,8 +82,8 @@ func UpdateTopicStatus(topicCheckForm *forms.ReviewTopicForm) (bool, error) {
 	return errors.Is(err, gorm.ErrRecordNotFound), err
 }
 
-func FindTopic(id uint) (*models.Topic, error) {
-	topic := &models.Topic{}
-	result := global.DB.First(&topic, id)
-	return topic, result.Error
+func FindTopic(id int64) (*models.Topic, error) {
+	topic := models.Topic{}
+	err := global.DB.Preload("Vote").First(&topic, id).Error
+	return &topic, err
 }
