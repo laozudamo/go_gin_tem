@@ -83,7 +83,7 @@ func UpdateTopicStatus(topicCheckForm *forms.ReviewTopicForm) (bool, error) {
 }
 
 func FindTopic(id int64) (*models.Topic, error) {
-	topic := models.Topic{}
+	topic := &models.Topic{}
 	err := global.DB.Preload("Vote").First(&topic, id).Error
-	return &topic, err
+	return topic, err
 }

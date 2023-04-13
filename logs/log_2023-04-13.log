@@ -1,0 +1,7 @@
+2023-04-13T11:09:03.447+0800	INFO	go_gin_tem/main.go:28	this is hello func	{"error": "启动错误!"}
+2023-04-13T11:22:58.040+0800	INFO	go_gin_tem/main.go:28	this is hello func	{"error": "启动错误!"}
+2023-04-13T11:23:40.123+0800	INFO	go_gin_tem/main.go:28	this is hello func	{"error": "启动错误!"}
+2023-04-13T11:23:50.887+0800	INFO	go_gin_tem/main.go:28	this is hello func	{"error": "启动错误!"}
+2023-04-13T11:24:26.572+0800	INFO	go_gin_tem/main.go:27	this is hello func	{"error": "启动错误!"}
+2023-04-13T11:25:41.994+0800	INFO	go_gin_tem/main.go:27	this is hello func	{"error": "启动错误!"}
+2023-04-13T11:27:33.741+0800	INFO	go_gin_tem/main.go:27	this is hello func	{"error": "启动错误!"}

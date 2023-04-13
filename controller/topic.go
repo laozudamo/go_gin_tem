@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"encoding/json"
 	"fmt"
 	response "goGinTem/Response"
 	"goGinTem/dao"
@@ -69,6 +70,11 @@ func ReviewTopic(c *gin.Context) {
 
 }
 
+type Jack struct {
+	Age string
+	Sex string
+}
+
 func GetTopic(c *gin.Context) {
 	idStr := c.Query("id")
 
@@ -76,10 +82,36 @@ func GetTopic(c *gin.Context) {
 	if err != nil {
 		response.Err(c, 200, 500, "id错误", err)
 	}
+
 	topic, err := dao.FindTopic(id)
+
 	if err != nil {
 		response.Err(c, 200, 500, "查询错误", err)
 		return
 	}
-	response.Success(c, 200, "获取成功", topic)
+
+	data := &forms.QueryTopicForm{}
+
+	var options []map[string]interface{}
+
+	if err := json.Unmarshal([]byte(topic.Vote.VoteOptions), &options); err != nil {
+		response.Err(c, 200, 500, "解析出错", err)
+		return
+	}
+	data.CreatByID = topic.CreatByID
+	data.ID = topic.ID
+	data.Status = int(topic.Status)
+	data.IsPublicResult = topic.Vote.IsPublicResult
+	data.Text = topic.Text
+	data.Title = topic.Title
+	data.VoteLimit = topic.Vote.VoteLimit
+	data.VoteCount = topic.Vote.VoteCount
+	data.VoteWay = int(topic.Vote.VoteWay)
+	data.Tag = topic.Tag
+	data.VoteStartTime = topic.Vote.VoteStartTime.Format("2006-01-02 15:04:05")
+	data.VoteEndTime = topic.Vote.VoteEndTime.Format("2006-01-02 15:04:05")
+	data.VoteOptions = options
+	data.VoteType = topic.Vote.VoteType
+
+	response.Success(c, 200, "获取成功", data)
 }

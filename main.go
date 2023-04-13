@@ -19,7 +19,6 @@ func main() {
 	if err := initialize.InitTrans("zh"); err != nil {
 		panic(err)
 	}
-
 	// initialize.InitRedis()
 
 	Router := initialize.Routers()

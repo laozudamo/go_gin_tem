@@ -1,6 +1,6 @@
 # dev
 name: "go-gin-tem"
-port: 8080
+port: 8081
 logsAddress: "./logs/"
 
 mysql:
