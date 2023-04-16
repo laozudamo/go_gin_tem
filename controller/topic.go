@@ -8,6 +8,7 @@ import (
 	"goGinTem/forms"
 	"goGinTem/utils"
 	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -70,11 +71,6 @@ func ReviewTopic(c *gin.Context) {
 
 }
 
-type Jack struct {
-	Age string
-	Sex string
-}
-
 func GetTopic(c *gin.Context) {
 	idStr := c.Query("id")
 
@@ -91,8 +87,7 @@ func GetTopic(c *gin.Context) {
 	}
 
 	data := &forms.QueryTopicForm{}
-
-	var options []map[string]interface{}
+	options := []forms.Option{}
 
 	if err := json.Unmarshal([]byte(topic.Vote.VoteOptions), &options); err != nil {
 		response.Err(c, 200, 500, "解析出错", err)
@@ -114,4 +109,36 @@ func GetTopic(c *gin.Context) {
 	data.VoteType = topic.Vote.VoteType
 
 	response.Success(c, 200, "获取成功", data)
+}
+
+func Vote(c *gin.Context) {
+	voteForm := &forms.VoteForm{}
+	if err := c.ShouldBind(voteForm); err != nil {
+		response.Err(c, 200, 500, "服务器内部错误", err)
+		return
+	}
+
+	topic, err := dao.FindTopic(int64(voteForm.TopicId))
+
+	if err != nil {
+		response.Err(c, 404, 500, "传入topicID错误", err)
+		return
+	}
+
+	if !time.Now().After(topic.Vote.VoteStartTime) {
+		response.Err(c, 200, 500, "投票时间尚未开始", nil)
+		return
+	}
+
+	if !time.Now().Before(topic.Vote.VoteEndTime) {
+		response.Err(c, 200, 500, "投票已经失效", nil)
+		return
+	}
+
+	if err := dao.Vote(int64(voteForm.TopicId), int64(voteForm.OptionID)); err != nil {
+		response.Err(c, 200, 500, "查询数据出错", err)
+		return
+	}
+
+	response.Success(c, 200, "投票成功", nil)
 }

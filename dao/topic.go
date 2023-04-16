@@ -87,3 +87,68 @@ func FindTopic(id int64) (*models.Topic, error) {
 	err := global.DB.Preload("Vote").First(&topic, id).Error
 	return topic, err
 }
+
+// func Vote(id int64, optionId int64) error {
+// 	vote := models.Vote{}
+// 	if err := global.DB.First(&vote, "topic_id", id).Error; err != nil {
+// 		panic(err)
+// 	}
+
+// 	options := []models.VoteOption{}
+// 	err := json.Unmarshal([]byte(vote.VoteOptions), &options)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+
+// 	for _, v := range options {
+// 		if v.ID == int(optionId) {
+// 			v.VoteCount++
+// 		}
+// 	}
+
+// 	str, _ := json.Marshal(&options)
+
+// 	err1 := global.DB.Model(vote).Where("topic_id=?", id).UpdateColumn("vote_options", string(str)).Error
+
+// 	return err1
+// }
+
+func Vote(id int64, optionId int64) error {
+	// Start a database transaction
+	tx := global.DB.Begin()
+
+	// Defer a function to handle the transaction commit or rollback
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		}
+	}()
+
+	vote := models.Vote{}
+	if err := tx.First(&vote, "topic_id = ?", id).Error; err != nil {
+		return err
+	}
+
+	options := []models.VoteOption{}
+	if err := json.Unmarshal([]byte(vote.VoteOptions), &options); err != nil {
+		return err
+	}
+
+	for i := range options {
+		if options[i].ID == int(optionId) {
+			options[i].VoteCount++
+			break
+		}
+	}
+
+	str, err := json.Marshal(&options)
+	if err != nil {
+		return err
+	}
+
+	if err := tx.Model(&vote).Where("topic_id = ?", id).UpdateColumn("vote_options", string(str)).Error; err != nil {
+		return err
+	}
+	// Commit the transaction if everything succeeded
+	return tx.Commit().Error
+}

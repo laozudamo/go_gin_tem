@@ -50,7 +50,12 @@ type QueryTopicForm struct {
 }
 
 type Option struct {
-	ID        int
-	Text      string
-	VoteCount int
+	ID        int    `json:"id"`
+	Text      string `json:"text"`
+	VoteCount int    `json:"voteCount"`
+}
+
+type VoteForm struct {
+	TopicId  int `json:"topicId"`
+	OptionID int `json:"optionId"`
 }
