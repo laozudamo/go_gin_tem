@@ -1,1 +1,0 @@
-2023-04-18T00:31:45.284+0800	INFO	middlewares/logger.go:31	/uploads/1681749098.png	{"statusxixixixi": 404, "method": "GET", "path": "/uploads/1681749098.png", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.4 Safari/605.1.15", "errors": "", "cost": "26.001125ms"}

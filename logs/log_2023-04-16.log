@@ -1,2 +1,0 @@
-2023-04-16T21:32:47.712+0800	INFO	middlewares/logger.go:31	/v1/vote	{"statusxixixixi": 404, "method": "GET", "path": "/v1/vote", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "7.5µs"}
-2023-04-16T21:32:59.961+0800	INFO	middlewares/logger.go:31	/v1/vote	{"statusxixixixi": 404, "method": "PUT", "path": "/v1/vote", "query": "", "ip": "127.0.0.1", "user-agent": "apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "8.125µs"}

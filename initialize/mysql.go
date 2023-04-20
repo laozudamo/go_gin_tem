@@ -19,6 +19,7 @@ func InitMysqlDB() {
 
 	db.AutoMigrate(models.Topic{})
 	db.AutoMigrate(models.Vote{})
+	db.AutoMigrate(models.VoteTopic{})
 	global.DB = db
 
 }

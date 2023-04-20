@@ -114,7 +114,7 @@ func GetTopic(c *gin.Context) {
 func Vote(c *gin.Context) {
 	voteForm := &forms.VoteForm{}
 	if err := c.ShouldBind(voteForm); err != nil {
-		response.Err(c, 200, 500, "服务器内部错误", err)
+		response.Err(c, 200, 400, "", err)
 		return
 	}
 
