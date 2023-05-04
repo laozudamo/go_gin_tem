@@ -21,11 +21,11 @@ import (
 // @Router       /login [post]
 func PasswordLogin(c *gin.Context) {
 	PasswordLoginForm := forms.PasswordLoginForm{}
-
 	if err := c.ShouldBind(&PasswordLoginForm); err != nil {
 		utils.HandleValidatorError(c, err)
 		return
 	}
+
 	user, ok := dao.FindUser(PasswordLoginForm.Tel)
 
 	if !ok {

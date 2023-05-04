@@ -88,32 +88,7 @@ func FindTopic(id int64) (*models.Topic, error) {
 	return topic, err
 }
 
-// func Vote(id int64, optionId int64) error {
-// 	vote := models.Vote{}
-// 	if err := global.DB.First(&vote, "topic_id", id).Error; err != nil {
-// 		panic(err)
-// 	}
-
-// 	options := []models.VoteOption{}
-// 	err := json.Unmarshal([]byte(vote.VoteOptions), &options)
-// 	if err != nil {
-// 		panic(err)
-// 	}
-
-// 	for _, v := range options {
-// 		if v.ID == int(optionId) {
-// 			v.VoteCount++
-// 		}
-// 	}
-
-// 	str, _ := json.Marshal(&options)
-
-// 	err1 := global.DB.Model(vote).Where("topic_id=?", id).UpdateColumn("vote_options", string(str)).Error
-
-// 	return err1
-// }
-
-func Vote(id int64, optionId int64) error {
+func Vote(topicId int64, optionId int64, userId int64) error {
 	// Start a database transaction
 	tx := global.DB.Begin()
 
@@ -125,7 +100,7 @@ func Vote(id int64, optionId int64) error {
 	}()
 
 	vote := models.Vote{}
-	if err := tx.First(&vote, "topic_id = ?", id).Error; err != nil {
+	if err := tx.First(&vote, "topic_id = ?", topicId).Error; err != nil {
 		return err
 	}
 
@@ -146,9 +121,15 @@ func Vote(id int64, optionId int64) error {
 		return err
 	}
 
-	if err := tx.Model(&vote).Where("topic_id = ?", id).UpdateColumn("vote_options", string(str)).Error; err != nil {
+	if err := tx.Model(&vote).Where("topic_id = ?", topicId).UpdateColumn("vote_options", string(str)).Error; err != nil {
 		return err
 	}
 	// Commit the transaction if everything succeeded
 	return tx.Commit().Error
+}
+
+func GetAllTopic() ([]*models.Topic, error) {
+	var topics []*models.Topic
+	err := global.DB.Preload("Vote").Find(&topics).Error
+	return topics, err
 }

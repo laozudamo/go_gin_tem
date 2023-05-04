@@ -112,6 +112,8 @@ func GetTopic(c *gin.Context) {
 }
 
 func Vote(c *gin.Context) {
+	userID := c.GetUint("userId")
+
 	voteForm := &forms.VoteForm{}
 	if err := c.ShouldBind(voteForm); err != nil {
 		response.Err(c, 200, 400, "", err)
@@ -135,10 +137,12 @@ func Vote(c *gin.Context) {
 		return
 	}
 
-	if err := dao.Vote(int64(voteForm.TopicId), int64(voteForm.OptionID)); err != nil {
+	if err := dao.Vote(int64(voteForm.TopicId), int64(voteForm.OptionID), int64(userID)); err != nil {
 		response.Err(c, 200, 500, "查询数据出错", err)
 		return
 	}
 
 	response.Success(c, 200, "投票成功", nil)
 }
+
+// 获取所有话题
