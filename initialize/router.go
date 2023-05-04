@@ -11,11 +11,9 @@ func Routers() *gin.Engine {
 	Router := gin.Default()
 
 	//路由中间件
-	Router.Use(middlewares.GinLogger(), middlewares.GinRecovery(true))
-	ApiGroup := Router.Group("/v1/")
-
+	Router.Use(middlewares.GinLogger(), middlewares.GinRecovery(true), middlewares.Cors())
 	// 设置跨域中间件
-	Router.Use(middlewares.Cors())
+	ApiGroup := Router.Group("/v1/")
 
 	// 图片路径 大小限制
 	Router.MaxMultipartMemory = 8 << 20 // 8 MiB
