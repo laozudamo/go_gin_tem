@@ -24,8 +24,6 @@ func HashString(s string) string {
 	// 对哈希值进行base64编码
 	encoded := base64.StdEncoding.EncodeToString(hash[:])
 
-	fmt.Println("Message:", s)
-	fmt.Println("Hash:", encoded)
 	return encoded
 }
 

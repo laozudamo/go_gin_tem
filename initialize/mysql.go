@@ -3,8 +3,6 @@ package initialize
 import (
 	"fmt"
 	"goGinTem/global"
-	"goGinTem/models"
-
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -16,10 +14,8 @@ func InitMysqlDB() {
 		mysqlInfo.Name, mysqlInfo.Password, mysqlInfo.Host,
 		mysqlInfo.Port, mysqlInfo.DBName)
 	db, _ := gorm.Open(mysql.Open(dsn), &gorm.Config{})
-
-	db.AutoMigrate(models.Topic{})
-	db.AutoMigrate(models.Vote{})
-	db.AutoMigrate(models.VoteTopic{})
+	//db.AutoMigrate(models.Topic{})
+	//db.AutoMigrate(models.Vote{})
+	//db.AutoMigrate(models.VoteTopic{})
 	global.DB = db
-
 }

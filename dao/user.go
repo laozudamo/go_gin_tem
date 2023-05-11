@@ -50,7 +50,8 @@ func handleUserItem(user models.User) *forms.QueryInfoForm {
 // UsernameFindUserInfo 通过username找到用户信息
 
 func FindUser(tel string) (*models.User, bool) {
-	if err := global.DB.Where("tel=?", tel).First(&user).Error; err != nil {
+	user := models.User{}
+	if err := global.DB.Where("tel = ?", tel).First(&user).Error; err != nil {
 		return &user, false
 	}
 	return &user, true
