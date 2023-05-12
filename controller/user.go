@@ -53,12 +53,12 @@ func ResgeterUser(c *gin.Context) {
 	}
 
 	if !store.Verify(registerUser.CaptchaId, registerUser.Captcha, true) {
-		response.Err(c, 400, 400, "验证码错误", nil)
+		response.Err(c, 200, 400, "验证码错误", nil)
 		return
 	}
 
 	if registerUser.PassWord != registerUser.CheckPwd {
-		response.Err(c, 400, 400, "密码不一致,请重新输入", nil)
+		response.Err(c, 200, 400, "密码不一致,请重新输入", nil)
 		return
 	}
 
