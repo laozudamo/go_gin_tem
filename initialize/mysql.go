@@ -3,6 +3,7 @@ package initialize
 import (
 	"fmt"
 	"goGinTem/global"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -15,7 +16,7 @@ func InitMysqlDB() {
 		mysqlInfo.Port, mysqlInfo.DBName)
 	db, _ := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	//db.AutoMigrate(models.Topic{})
-	//db.AutoMigrate(models.Vote{})
+	// docker run -p 8088:80 -d --name welcome-to-docker docker/welcome-to-docker
 	//db.AutoMigrate(models.VoteTopic{})
 	global.DB = db
 }
