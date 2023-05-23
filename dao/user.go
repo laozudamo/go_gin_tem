@@ -27,7 +27,6 @@ func GetUserListDao(page int, page_size int) (int, []interface{}) {
 	total := len(users)
 	// 查询数据
 	result.Offset(offset).Limit(page_size).Find(&users)
-	//
 	for _, useSingle := range users {
 
 		userItemMap := handleUserItem(useSingle)
@@ -75,7 +74,6 @@ func CreateUser(tel string, password string) (*models.User, bool) {
 }
 
 func UpdateUserInfo(userInfo string, id any) (*models.User, bool) {
-
 	if err := global.DB.Model(&user).Where("id = ?", id).Update("user_info", userInfo).Error; err != nil {
 		return &user, false
 	}
