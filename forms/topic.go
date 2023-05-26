@@ -55,6 +55,7 @@ type Option struct {
 	VoteCount int    `json:"voteCount"`
 }
 
+// 投票
 type VoteForm struct {
 	TopicId  int `json:"topicId"`
 	OptionID int `json:"optionId"`
