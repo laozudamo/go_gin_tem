@@ -29,6 +29,7 @@ type VoteTopicForm struct {
 	OptionsID []int
 }
 
+// topic
 type QueryTopicForm struct {
 	ID             uint
 	Title          string   `json:"title"`
