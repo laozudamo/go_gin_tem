@@ -24,6 +24,7 @@ type ReviewTopicForm struct {
 	Status int `json:"status"` //话题状态
 }
 
+// voteTopicForm
 type VoteTopicForm struct {
 	ID        uint // 话题ID
 	OptionsID []int
